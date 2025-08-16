@@ -1,11 +1,9 @@
 import express from 'express';
 
+import { signupController } from '../../controllers/userController.js';
+
 const router = express.Router();
 
-router.get('/signup', (req, res) => {
-    return res.status(200).json({
-        msg: "User found"
-    })
-})
+router.post('/signup', signupController);
 
 export default router;
