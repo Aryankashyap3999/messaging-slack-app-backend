@@ -4,6 +4,7 @@ import { StatusCodes } from 'http-status-codes';
 import connectDB from './config/dbConfig.js';
 // import { cors } from 'cors'; 
 import { PORT } from './config/serverConfig.js';
+import apiRoutes from './routes/index.js'
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.get('/ping', (req, res) => {
     msg: 'pong',
   });
 });
+
+app.use('/api', apiRoutes);
 
 app.listen(PORT, () => {
   console.log('Server is running on port: ', PORT);
