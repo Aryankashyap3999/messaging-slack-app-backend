@@ -24,7 +24,8 @@ const userSchema = new mongoose.Schema({
             match: [
                 /^[a-zA-Z0-9]+$/,
                 'username only contain number and alphabets'
-            ]
+            ],
+            minLength: [3, 'Username should be at least of 3 character']
         },
         avatar: {
             type: String,
