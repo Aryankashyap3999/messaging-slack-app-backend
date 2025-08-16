@@ -8,7 +8,7 @@ const userRepository = {
         return user;
     },
     getUserByName : async (name) => {
-        const user = await User.findOne({ name });
+        const user = await User.findOne({ name }).select('-password');
         return user;
     }
 }
