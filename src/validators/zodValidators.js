@@ -8,10 +8,10 @@ export const validate = (schema) => {
             await schema.parseAsync(req.body);
             next();
         } catch (error) {
-            console.log('zod validation error', error);
+            console.log('zod validation error: ', error);
             let explanation = [];
             let errormessage = '';
-            error.errors.forEach((key) => {
+            error.errors?.forEach((key) => {
                 explanation.push(key.message);
                 errormessage += ':' + key.path[0] + ' ' + key.message;
             })
