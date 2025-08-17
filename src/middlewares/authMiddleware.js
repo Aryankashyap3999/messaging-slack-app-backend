@@ -33,13 +33,12 @@ export const isAuthenticated = async (req, res, next) => {
         if (error.name === 'JsonWebTokenError') {
             return res.status(StatusCodes.FORBIDDEN).json(
                 customResponse({
-                explanation: 'Invalid data sent from the client',
-                message: 'Invalid auth token provided'
+                    explanation: 'Invalid data sent from the client',
+                    message: 'Invalid auth token provided'
                 })
             );
         }
 
         return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json(internalErrorResponse(error));
-
     }
 }
