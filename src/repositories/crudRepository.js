@@ -25,6 +25,10 @@ export default function crudRepository(model) {
                 new: true
             });
             return response;
-        }
+        },
+        deleteMany: async function ()  {
+            const newDoc = await model.deleteMany({});
+            return newDoc;
+        },
     };
 }
