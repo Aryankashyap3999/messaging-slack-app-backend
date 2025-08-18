@@ -1,4 +1,4 @@
-import { createMessageService } from '../services/messageService.js';
+import { createMessageService } from '../service/messageService.js';
 import {
   NEW_MESSAGE_EVENT,
   NEW_MESSAGE_RECEIVED_EVENT
