@@ -2,10 +2,10 @@ import { StatusCodes } from 'http-status-codes';
 
 import { getChannelByIdService } from '../service/channelService.js';
 import {
-  customErrorResponse,
+  customResponse,
   internalErrorResponse,
-  successResponse
-} from '../utils/common/responseObjects.js';
+  SuccessResponse
+} from '../utils/common/responseObject.js';
 
 export const getChannelByIdController = async (req, res) => {
   try {
@@ -15,11 +15,11 @@ export const getChannelByIdController = async (req, res) => {
     );
     return res
       .status(StatusCodes.OK)
-      .json(successResponse(response, 'Channel fetched successfully'));
+      .json(SuccessResponse(response, 'Channel fetched successfully'));
   } catch (error) {
     console.log('get channel by id controller error', error);
     if (error.statusCode) {
-      return res.status(error.statusCode).json(customErrorResponse(error));
+      return res.status(error.statusCode).json(customResponse(error));
     }
 
     return res

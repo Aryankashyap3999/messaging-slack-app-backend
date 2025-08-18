@@ -61,7 +61,7 @@ export const createWorkspaceService = async (workspaceData) => {
       throw new ValidationError(
         {
           error: error.errors
-        },
+        },  
         error.message
       );
     }
@@ -218,7 +218,7 @@ export const resetWorkspaceJoinCodeService = async (workspaceId, userId) => {
   } catch (error) {
     console.log('resetWorkspaceJoinCodeService error', error);
     throw error;
-  }
+  } 
 };
 
 export const addMemberToWorkspaceService = async (
