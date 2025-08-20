@@ -27,6 +27,8 @@ const userSchema = new mongoose.Schema({
             ],
             minLength: [3, 'Username should be at least of 3 character']
         },
+        resetPasswordToken: String,
+        resetPasswordExpire: Date,
         avatar: {
             type: String,
 
@@ -37,6 +39,7 @@ const userSchema = new mongoose.Schema({
 
 userSchema.pre('save', function saveUser(next) {
     const user = this;
+    if (!this.isModified("password")) return next();
     const SALT = bcrypt.genSaltSync(9);
     const hashedPassword = bcrypt.hashSync(user.password, SALT);
     user.password = hashedPassword;

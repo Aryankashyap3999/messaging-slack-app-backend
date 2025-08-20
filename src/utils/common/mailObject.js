@@ -18,3 +18,14 @@ export const verifyEmailMail = function (verificationToken) {
     `
   };
 };
+
+export const resetPasswordMail = function (token) {
+  return {
+    from: MAIL_ID,
+    subject: "Reset Password",
+    text: `
+      click in this link to reset your password ${token}
+    `
+
+  }
+}
