@@ -25,6 +25,7 @@ export const createWorkspaceController = async (req, res) => {
       ...req.body,
       owner: req.user
     });
+    console.log('Created workspace is: ', response);
     return res
       .status(StatusCodes.CREATED)
       .json(SuccessResponse(response, 'Workspace created successfully'));
