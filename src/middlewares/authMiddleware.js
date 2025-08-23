@@ -20,7 +20,7 @@ export const isAuthenticated = async (req, res, next) => {
       );
     }
 
-    console.log("Token is: ", token);
+    // console.log("Token is: ", token);
     const response = jwt.verify(token, JWT_SECRET);
     
 
