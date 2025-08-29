@@ -215,13 +215,14 @@ export const resetJoinCodeController = async (req, res) => {
 };
 
 export const joinWorkspaceController = async (req, res) => {
+  console.log('Deatils are: ', req.params.workspaceId, req.body.joinCode, req.user);
   try {
     const response = await joinWorkspaceService(
       req.params.workspaceId,
       req.body.joinCode,
       req.user
     );
-    return res
+    return res  
       .status(StatusCodes.OK)
       .json(SuccessResponse(response, 'Joined workspace successfully'));
   } catch (error) {

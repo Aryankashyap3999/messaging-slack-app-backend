@@ -18,8 +18,8 @@ const workspaceSchema = new mongoose.Schema(
                 },
                 role: {
                     type: String,
-                    enum: ['admin', 'memeber'],
-                    default: 'memeber'
+                    enum: ['admin', 'member'],
+                    default: 'member'
                 }
             }
         ],
