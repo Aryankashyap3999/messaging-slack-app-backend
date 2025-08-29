@@ -10,7 +10,15 @@ const userRepository = {
     getUserByName : async (name) => {
         const user = await User.findOne({ name }).select('-password');
         return user;
+    },
+    getByEmail: async function (email) {
+        const user = await User.findOne({ email });
+        return user;
+    },
+    getByToken: async function (token) {
+        const user = await User.findOne({ verificationToken: token });
+        return user;
     }
-}
+};
 
 export default userRepository;
